@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Maison Style DZ - Elegant and affordable home décor products delivered across Algeria.">
+
+    <meta name="theme-color" content="#6b4f35">
+
+    <title>Maison Style DZ | Home Décor Algeria</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="site-header">
+
+        <div class="logo-circle">MS</div>
+
+        <div class="brand">
+            <h1>Maison Style DZ</h1>
+            <p>Home Décor • Style • Elegance</p>
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#products">Products</a>
+            <a href="#categories">Categories</a>
+            <a href="#delivery">Delivery</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+    </header>
+
+
+    <!-- FLOATING CART -->
+    <div class="cart-floating">
+        <button type="button" onclick="openCart()" aria-label="Open shopping cart">
+            🛒
+            <span id="cart-count">0</span>
+        </button>
+    </div>
+
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <span class="hero-label">✨ Maison Style DZ</span>
+
+            <h2>
+                Make Your Home
+                <span>Beautiful</span>
+            </h2>
+
+            <p>
+                Discover elegant home décor products
+                at affordable prices.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#products" class="button">
+                    Shop Now
+                </a>
+
+                <a href="#categories" class="button secondary-button">
+                    Explore
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- OFFERS -->
+    <section id="offers" class="offers-section">
+
+        <span class="section-label">SPECIAL COLLECTION</span>
+
+        <h2>🔥 Special Offers</h2>
+
+        <p>
+            Discover our latest home décor pieces
+            and special prices.
+        </p>
+
+        <div class="offer-box">
+
+            <div class="offer-icon">✨</div>
+
+            <h3>New Collection</h3>
+
+            <p>
+                Beautiful décor products selected
+                to give your home a stylish and elegant touch.
+            </p>
+
+            <a href="#products" class="button">
+                Discover Products
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- CATEGORIES -->
+    <section id="categories" class="categories-section">
+
+        <span class="section-label">EXPLORE</span>
+
+        <h2>Our Categories</h2>
+
+        <p class="categories-intro">
+            Find the perfect pieces for every corner of your home.
+        </p>
+
+        <div class="categories-container">
+
+            <button
+                type="button"
+                class="category-filter active"
+                data-category="all">
+                🏠 All
+            </button>
+
+            <button
+                type="button"
+                class="category-filter"
+                data-category="decor">
+                ✨ Home Décor
+            </button>
+
+            <button
+                type="button"
+                class="category-filter"
+                data-category="kitchen">
+                🍽️ Kitchen
+            </button>
+
+            <button
+                type="button"
+                class="category-filter"
+                data-category="storage">
+                🗄️ Storage
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section class="about-section">
+
+        <div class="about-content">
+
+            <span class="section-label">ABOUT US</span>
+
+            <h2>Maison Style DZ</h2>
+
+            <p>
+                We bring beautiful and stylish home décor
+                products closer to homes across Algeria.
+            </p>
+
+            <p>
+                Our goal is simple:
+                discover beautiful pieces,
+                choose your favorite product
+                and order easily.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- PRODUCTS -->
+    <section class="products" id="products">
+
+        <span class="section-label">OUR PRODUCTS</span>
+
+        <h2>Featured Products</h2>
+
+        <p class="products-intro">
+            Discover our latest home décor pieces.
+        </p>
+
+
+        <!-- SEARCH -->
+        <div class="product-tools">
+
+            <input
+                type="search"
+                id="product-search"
+                placeholder="🔎 Search for a product..."
+                aria-label="Search products">
+
+        </div>
+
+
+        <!-- PRODUCTS GRID -->
+        <div
+            class="products-container"
+            id="products-container">
+
+
+            <!-- PRODUCT 1 -->
+            <div
+                class="product-card"
+                data-category="decor"
+                data-name="Ceramic Pitcher Vase">
+
+                <div class="product-image">
+
+                    <span class="new-badge">
+                        NEW
+                    </span>
+
+                    <img
+                        src="image/product1.jpg"
+                        alt="Ceramic Pitcher Vase"
+                        loading="lazy">
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <span class="product-category">
+                        Home Décor
+                    </span>
+
+                    <h3>
+                        Ceramic Pitcher Vase
+                    </h3>
+
+                    <p class="product-description">
+                        Elegant ceramic décor piece
+                        for your home.
+                    </p>
+
+                    <p class="price">
+                        4300 DA
+                    </p>
+
+
+                    <button
+                        type="button"
+                        onclick="showOrderForm('Ceramic Pitcher Vase','4300 DA')">
+
+                        Order Now
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="cart-button"
+                        onclick="addToCart('Ceramic Pitcher Vase','4300 DA')">
+
+                        🛒 Add to Cart
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 2 -->
+            <div
+                class="product-card"
+                data-category="decor"
+                data-name="Large Decorative Ceramic Pitcher Vase">
+
+                <div class="product-image">
+
+                    <span class="new-badge">
+                        NEW
+                    </span>
+
+                    <img
+                        src="image/product2.jpg"
+                        alt="Large Decorative Ceramic Pitcher Vase"
+                        loading="lazy">
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <span class="product-category">
+                        Home Décor
+                    </span>
+
+                    <h3>
+                        Large Decorative Ceramic Pitcher Vase
+                    </h3>
+
+                    <p class="product-description">
+                        A beautiful statement piece
+                        for elegant interiors.
+                    </p>
+
+                    <p class="price">
+                        3900 DA
+                    </p>
+
+
+                    <button
+                        type="button"
+                        onclick="showOrderForm('Large Decorative Ceramic Pitcher Vase','3900 DA')">
+
+                        Order Now
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="cart-button"
+                        onclick="addToCart('Large Decorative Ceramic Pitcher Vase','3900 DA')">
+
+                        🛒 Add to Cart
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 3 -->
+            <div
+                class="product-card"
+                data-category="decor"
+                data-name="Ceramic Pitcher Vase">
+
+                <div class="product-image">
+
+                    <span class="new-badge">
+                        NEW
+                    </span>
+
+                    <img
+                        src="image/product3.jpg"
+                        alt="Ceramic Pitcher Vase"
+                        loading="lazy">
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <span class="product-category">
+                        Home Décor
+                    </span>
+
+                    <h3>
+                        Ceramic Pitcher Vase
+                    </h3>
+
+                    <p class="product-description">
+                        Simple and elegant
+                        ceramic decoration.
+                    </p>
+
+                    <p class="price">
+                        2500 DA
+                    </p>
+
+
+                    <button
+                        type="button"
+                        onclick="showOrderForm('Ceramic Pitcher Vase','2500 DA')">
+
+                        Order Now
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="cart-button"
+                        onclick="addToCart('Ceramic Pitcher Vase','2500 DA')">
+
+                        🛒 Add to Cart
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 4 -->
+            <div
+                class="product-card"
+                data-category="kitchen"
+                data-name="Wooden Dish Rack">
+
+                <div class="product-image">
+
+                    <span class="new-badge">
+                        NEW
+                    </span>
+
+                    <img
+                        src="image/product4.jpg"
+                        alt="Wooden Dish Rack"
+                        loading="lazy">
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <span class="product-category">
+                        Kitchen
+                    </span>
+
+                    <h3>
+                        Wooden Dish Rack
+                    </h3>
+
+                    <p class="product-description">
+                        Practical wooden dish rack
+                        with a natural look.
+                    </p>
+
+                    <p class="price">
+                        3500 DA
+                    </p>
+
+
+                    <button
+                        type="button"
+                        onclick="showOrderForm('Wooden Dish Rack','3500 DA')">
+
+                        Order Now
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="cart-button"
+                        onclick="addToCart('Wooden Dish Rack','3500 DA')">
+
+                        🛒 Add to Cart
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <p
+            id="no-products"
+            class="no-products"
+            style="display:none;">
+
+            No products found.
+
+        </p>
+
+    </section>
+
+
+    <!-- ORDER FORM -->
+    <section class="order-section">
+
+        <section
+            class="order-form"
+            id="order-form"
+            style="display:none;">
+
+            <span class="section-label">
+                ORDER
+            </span>
+
+            <h2>
+                Place Your Order
+            </h2>
+
+            <p>
+                Enter your information
+                and continue through WhatsApp.
+            </p>
+
+
+            <div class="selected-product">
+
+                <strong>
+                    Selected Product
+                </strong>
+
+                <span id="selected-product-name">
+                    -
+                </span>
+
+                <span id="selected-product-price">
+                    -
+                </span>
+
+            </div>
+
+
+            <label for="customer-name">
+                Your Name
+            </label>
+
+            <input
+                type="text"
+                id="customer-name"
+                placeholder="Your Name"
+                autocomplete="name">
+
+
+            <label for="customer-phone">
+                Phone Number
+            </label>
+
+            <input
+                type="tel"
+                id="customer-phone"
+                placeholder="Phone Number"
+                autocomplete="tel">
+
+
+            <label for="customer-city">
+                City
+            </label>
+
+            <input
+                type="text"
+                id="customer-city"
+                placeholder="City"
+                autocomplete="address-level2">
+
+
+            <button
+                type="button"
+                onclick="submitOrder()">
+
+                Confirm Order on WhatsApp
+
+            </button>
+
+        </section>
+
+    </section>
+
+
+    <!-- DELIVERY -->
+    <section
+        id="delivery"
+        class="delivery-section">
+
+        <div class="delivery-content">
+
+            <div class="delivery-icon">
+                🚚
+            </div>
+
+            <div>
+
+                <span class="section-label">
+                    DELIVERY
+                </span>
+
+                <h2>
+                    Delivery Across Algeria
+                </h2>
+
+                <p>
+                    We aim to make ordering easy
+                    and convenient for customers across Algeria.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- WHY US -->
+    <section class="why-section">
+
+        <span class="section-label">
+            WHY US
+        </span>
+
+        <h2>
+            Why Choose Maison Style DZ?
+        </h2>
+
+        <p class="why-intro">
+            We make discovering and ordering
+            home décor simple.
+        </p>
+
+
+        <div class="why-container">
+
+            <div class="why-card">
+
+                <div class="why-icon">
+                    ✨
+                </div>
+
+                <h3>
+                    Elegant Products
+                </h3>
+
+                <p>
+                    Carefully selected pieces
+                    for a beautiful home.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <div class="why-icon">
+                    💰
+                </div>
+
+                <h3>
+                    Affordable Prices
+                </h3>
+
+                <p>
+                    Stylish products
+                    at accessible prices.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <div class="why-icon">
+                    📱
+                </div>
+
+                <h3>
+                    Easy Ordering
+                </h3>
+
+                <p>
+                    Order quickly and easily
+                    through WhatsApp.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- TRUST -->
+    <section class="trust-section">
+
+        <span class="section-label">
+            CUSTOMER TRUST
+        </span>
+
+        <h2>
+            Simple. Clear. Easy.
+        </h2>
+
+        <p>
+            Your satisfaction is important to us.
+            We keep the ordering process simple and direct.
+        </p>
+
+
+        <div class="trust-container">
+
+            <div class="trust-card">
+
+                <strong>
+                    01
+                </strong>
+
+                <h3>
+                    Choose
+                </h3>
+
+                <p>
+                    Choose the product you like.
+                </p>
+
+            </div>
+
+
+            <div class="trust-card">
+
+                <strong>
+                    02
+                </strong>
+
+                <h3>
+                    Order
+                </h3>
+
+                <p>
+                    Fill in your information.
+                </p>
+
+            </div>
+
+
+            <div class="trust-card">
+
+                <strong>
+                    03
+                </strong>
+
+                <h3>
+                    Confirm
+                </h3>
+
+                <p>
+                    Confirm your order
+                    through WhatsApp.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FAQ -->
+    <section class="faq-section">
+
+        <span class="section-label">
+            FAQ
+        </span>
+
+        <h2>
+            Frequently Asked Questions
+        </h2>
+
+
+        <div class="faq-container">
+
+            <details>
+
+                <summary>
+                    How can I order a product?
+                </summary>
+
+                <p>
+                    Choose your product,
+                    click Order Now,
+                    fill in your information
+                    and confirm through WhatsApp.
+                </p>
+
+            </details>
+
+
+            <details>
+
+                <summary>
+                    Do you deliver across Algeria?
+                </summary>
+
+                <p>
+                    We offer delivery options
+                    across Algeria.
+                </p>
+
+            </details>
+
+
+            <details>
+
+                <summary>
+                    How can I contact you?
+                </summary>
+
+                <p>
+                    You can contact Maison Style DZ
+                    directly through WhatsApp.
+                </p>
+
+            </details>
+
+
+            <details>
+
+                <summary>
+                    Can I ask about a product before ordering?
+                </summary>
+
+                <p>
+                    Yes.
+                    Contact us through WhatsApp
+                    and ask about the product.
+                </p>
+
+            </details>
+
+        </div>
+
+    </section>
+
+
+    <!-- HELP -->
+    <section class="help-section">
+
+        <div class="help-box">
+
+            <div class="help-icon">
+                💬
+            </div>
+
+            <h2>
+                Need Help?
+            </h2>
+
+            <p>
+                Have a question about a product
+                or an order?
+                Contact us directly on WhatsApp.
+            </p>
+
+            <a
+                href="https://wa.me/213562143229"
+                target="_blank"
+                rel="noopener"
+                class="button">
+
+                Contact Us on WhatsApp
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section
+        class="contact-section"
+        id="contact">
+
+        <span class="section-label">
+            CONTACT
+        </span>
+
+        <h2>
+            Contact Maison Style DZ
+        </h2>
+
+        <p>
+            We are here to help you.
+        </p>
+
+
+        <div class="contact-info">
+
+            <div>
+
+                <span class="contact-icon">
+                    📱
+                </span>
+
+                <strong>
+                    WhatsApp
+                </strong>
+
+                <p>
+                    +213 562 143 229
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <span class="contact-icon">
+                    🏠
+                </span>
+
+                <strong>
+                    Location
+                </strong>
+
+                <p>
+                    Algeria
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CART -->
+    <section
+        class="cart-panel"
+        id="cart-panel"
+        aria-label="Shopping cart">
+
+        <div class="cart-panel-content">
+
+
+            <div class="cart-header">
+
+                <h2>
+                    🛒 Your Cart
+                </h2>
+
+                <button
+                    type="button"
+                    onclick="closeCart()"
+                    class="close-cart"
+                    aria-label="Close shopping cart">
+
+                    ×
+
+                </button>
+
+            </div>
+
+
+            <div id="cart-items">
+
+                <p class="empty-cart">
+                    Your cart is empty.
+                </p>
+
+            </div>
+
+
+            <div class="cart-total-row">
+
+                <strong>
+                    Total
+                </strong>
+
+                <strong id="cart-total">
+                    0 DA
+                </strong>
+
+            </div>
+
+
+            <div class="cart-customer-form">
+
+                <h3>
+                    Order Information
+                </h3>
+
+
+                <input
+                    type="text"
+                    id="cart-customer-name"
+                    placeholder="Your Name"
+                    autocomplete="name">
+
+
+                <input
+                    type="tel"
+                    id="cart-customer-phone"
+                    placeholder="Phone Number"
+                    autocomplete="tel">
+
+
+                <input
+                    type="text"
+                    id="cart-customer-city"
+                    placeholder="City"
+                    autocomplete="address-level2">
+
+
+                <button
+                    type="button"
+                    class="whatsapp-cart-button"
+                    onclick="sendCartToWhatsApp()">
+
+                    📱 Order Cart on WhatsApp
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-logo">
+            MS
+        </div>
+
+        <h3>
+            Maison Style DZ
+        </h3>
+
+        <p>
+            Home Décor • Style • Elegance
+        </p>
+
+
+        <div class="footer-links">
+
+            <a href="#home">
+                Home
+            </a>
+
+            <a href="#products">
+                Products
+            </a>
+
+            <a href="#categories">
+                Categories
+            </a>
+
+            <a href="#contact">
+                Contact
+            </a>
+
+        </div>
+
+
+        <p class="copyright">
+            © 2026 Maison Style DZ.
+            All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- FLOATING WHATSAPP -->
+    <a
+        href="https://wa.me/213562143229"
+        target="_blank"
+        rel="noopener"
+        class="floating-whatsapp"
+        aria-label="Contact Maison Style DZ on WhatsApp">
+
+        💬
+
+    </a>
+
+
+    <!-- BACK TO TOP -->
+    <button
+        type="button"
+        class="back-to-top"
+        id="back-to-top"
+        aria-label="Back to top">
+
+        ↑
+
+    </button>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
