@@ -53,15 +53,15 @@ button {
 a {
   color: inherit;
   text-decoration: none;
+  pointer-events: auto;
+  touch-action: manipulation;
 }
 
 ul {
   list-style: none;
 }
 
-/* =========================
-   HEADER
-========================= */
+/* HEADER */
 
 .site-header {
   position: sticky;
@@ -72,54 +72,41 @@ ul {
   backdrop-filter: blur(10px);
 }
 
-.navbar {
+.site-header > div,
+.site-header .header-inner {
   width: min(1180px, 92%);
   margin: auto;
-  min-height: 76px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
 }
 
-.logo {
+.logo-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand {
+  color: var(--accent-dark);
   font-size: 1.5rem;
   font-weight: 800;
-  color: var(--accent-dark);
   white-space: nowrap;
 }
 
-.nav-links {
+nav {
   display: flex;
   align-items: center;
   gap: 22px;
 }
 
-.nav-links a {
+nav a {
   color: var(--text);
   font-weight: 600;
 }
 
-.nav-links a:hover {
+nav a:hover {
   color: var(--accent);
 }
 
-.menu-toggle {
-  display: none;
-  border: 0;
-  background: transparent;
-  font-size: 1.8rem;
-}
-
-/* =========================
-   GENERAL
-========================= */
-
-section {
-  width: min(1180px, 92%);
-  margin: 0 auto;
-  padding: 70px 0;
-}
+/* GENERAL */
 
 section:not(.hero) {
   scroll-margin-top: 80px;
@@ -139,13 +126,22 @@ section:not(.hero) {
   color: var(--muted);
 }
 
-.btn,
-.order-button,
-.cart-button,
+.button,
+.product-info > button,
+.order-form button,
+.category-filter,
 .whatsapp-cart-button,
-.submit-order,
-.category-button,
-.filter-button {
+.close-cart,
+.cart-floating button,
+#back-to-top {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.button,
+.product-info > button,
+.order-form button,
+.whatsapp-cart-button {
   border: 0;
   border-radius: 12px;
   padding: 13px 18px;
@@ -157,13 +153,10 @@ section:not(.hero) {
     box-shadow 0.2s ease;
 }
 
-.btn:hover,
-.order-button:hover,
-.cart-button:hover,
-.whatsapp-cart-button:hover,
-.submit-order:hover,
-.category-button:hover,
-.filter-button:hover {
+.button:hover,
+.product-info > button:hover,
+.order-form button:hover,
+.whatsapp-cart-button:hover {
   transform: translateY(-2px);
 }
 
@@ -176,9 +169,7 @@ textarea:focus-visible {
   outline-offset: 3px;
 }
 
-/* =========================
-   HERO
-========================= */
+/* HERO */
 
 .hero {
   position: relative;
@@ -229,18 +220,16 @@ textarea:focus-visible {
   gap: 12px;
 }
 
-.hero .btn {
+.hero .button {
   background: #fff;
   color: var(--accent-dark);
 }
 
-.hero .btn:hover {
+.hero .button:hover {
   background: #f3ece4;
 }
 
-/* =========================
-   OFFERS
-========================= */
+/* OFFERS */
 
 .offers-grid {
   display: grid;
@@ -265,9 +254,7 @@ textarea:focus-visible {
   color: var(--muted);
 }
 
-/* =========================
-   CATEGORIES
-========================= */
+/* CATEGORIES */
 
 .categories-grid {
   display: grid;
@@ -294,9 +281,24 @@ textarea:focus-visible {
   transform: translateY(-4px);
 }
 
-/* =========================
-   ABOUT
-========================= */
+.category-filter {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 11px 17px;
+  min-height: 44px;
+  background: var(--surface);
+  color: var(--text);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.category-filter.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+/* ABOUT */
 
 .about-content {
   display: grid;
@@ -316,9 +318,7 @@ textarea:focus-visible {
   margin-bottom: 15px;
 }
 
-/* =========================
-   PRODUCTS
-========================= */
+/* PRODUCTS */
 
 .product-filters {
   display: flex;
@@ -328,19 +328,7 @@ textarea:focus-visible {
   margin-bottom: 30px;
 }
 
-.filter-button {
-  background: var(--surface);
-  color: var(--text);
-  border: 1px solid var(--border);
-}
-
-.filter-button.active {
-  background: var(--accent);
-  color: #fff;
-  border-color: var(--accent);
-}
-
-.products-grid {
+.products-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 22px;
@@ -359,12 +347,24 @@ textarea:focus-visible {
 .product-image {
   width: 100%;
   aspect-ratio: 1 / 1;
-  object-fit: cover;
+  overflow: hidden;
   background: #eee;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .product-info {
   padding: 18px;
+}
+
+.product-category {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-bottom: 5px;
 }
 
 .product-info h3 {
@@ -372,38 +372,40 @@ textarea:focus-visible {
   margin-bottom: 8px;
 }
 
-.product-price {
+.product-description {
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.price {
   color: var(--accent-dark);
   font-size: 1.15rem;
   font-weight: 800;
   margin-bottom: 15px;
 }
 
-.product-actions {
-  display: grid;
-  gap: 9px;
-}
-
-.product-actions button {
+.product-info > button {
   position: relative;
   z-index: 10;
+  display: block;
   width: 100%;
+  margin-top: 9px;
   pointer-events: auto;
 }
 
-.order-button {
+.product-info > button:first-of-type {
   background: var(--accent);
   color: #fff;
 }
 
-.order-button:hover {
+.product-info > button:first-of-type:hover {
   background: var(--accent-dark);
 }
 
 .cart-button {
   background: var(--surface-soft);
   color: var(--accent-dark);
-  border: 1px solid var(--border);
+  border: 1px solid var(--border) !important;
 }
 
 .cart-button:hover {
@@ -423,13 +425,11 @@ textarea:focus-visible {
   font-weight: 800;
 }
 
-/* =========================
-   ORDER FORM
-========================= */
+/* ORDER FORM */
 
 .order-form {
   max-width: 700px;
-  margin: auto;
+  margin: 0 auto;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -468,19 +468,13 @@ textarea:focus-visible {
   resize: vertical;
 }
 
-.submit-order {
+.order-form button {
   width: 100%;
   background: var(--success);
   color: #fff;
 }
 
-.submit-order:hover {
-  background: #17613d;
-}
-
-/* =========================
-   DELIVERY / WHY / TRUST
-========================= */
+/* DELIVERY / WHY / TRUST */
 
 .delivery-grid,
 .why-grid,
@@ -507,9 +501,7 @@ textarea:focus-visible {
   color: var(--muted);
 }
 
-/* =========================
-   FAQ
-========================= */
+/* FAQ */
 
 .faq-list {
   max-width: 850px;
@@ -535,9 +527,7 @@ textarea:focus-visible {
   margin-top: 12px;
 }
 
-/* =========================
-   HELP / CONTACT
-========================= */
+/* HELP / CONTACT */
 
 .help-box,
 .contact-box {
@@ -569,19 +559,14 @@ textarea:focus-visible {
   font-weight: 800;
 }
 
-.whatsapp-button:hover {
-  background: #17613d;
-}
-
-/* =========================
-   CART
-========================= */
+/* CART FLOATING */
 
 .cart-floating {
   position: fixed;
   right: 20px;
   bottom: 20px;
-  z-index: 3000;
+  z-index: 9000;
+  pointer-events: none;
 }
 
 .cart-floating button {
@@ -594,6 +579,7 @@ textarea:focus-visible {
   color: #fff;
   font-size: 1.45rem;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  pointer-events: auto;
 }
 
 .cart-floating button:hover {
@@ -618,12 +604,17 @@ textarea:focus-visible {
   font-weight: 800;
 }
 
+/* CART PANEL */
+
 .cart-panel {
   position: fixed;
   inset: 0;
-  z-index: 4000;
+  z-index: 10000;
   display: flex;
   justify-content: flex-end;
+  width: 100%;
+  margin: 0;
+  padding: 0;
   background: rgba(0, 0, 0, 0.45);
   visibility: hidden;
   opacity: 0;
@@ -664,13 +655,22 @@ textarea:focus-visible {
   background: #fff;
   color: var(--text);
   font-size: 1.5rem;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.cart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
 }
 
 .cart-panel h2 {
   margin: 15px 0 20px;
 }
 
-.cart-items {
+#cart-items {
   display: grid;
   gap: 12px;
 }
@@ -682,8 +682,8 @@ textarea:focus-visible {
   background: var(--bg);
 }
 
-.cart-item h3 {
-  font-size: 1rem;
+.cart-item-title {
+  font-weight: 800;
   margin-bottom: 5px;
 }
 
@@ -692,26 +692,22 @@ textarea:focus-visible {
   font-weight: 800;
 }
 
-.cart-item-actions {
+.cart-item-controls {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 10px;
+  flex-wrap: wrap;
+  gap: 8px;
   margin-top: 12px;
 }
 
-.quantity-controls {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.quantity-controls button {
-  width: 34px;
-  height: 34px;
+.quantity-button {
+  width: 36px;
+  height: 36px;
   border: 1px solid var(--border);
   border-radius: 8px;
   background: #fff;
+  cursor: pointer;
+  pointer-events: auto;
 }
 
 .remove-cart-item {
@@ -719,14 +715,23 @@ textarea:focus-visible {
   background: transparent;
   color: var(--danger);
   font-weight: 700;
+  cursor: pointer;
+  pointer-events: auto;
 }
 
-.cart-total {
+.cart-subtotal {
+  margin-top: 10px;
+  font-weight: 700;
+}
+
+.cart-total-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
   margin-top: 22px;
   padding-top: 18px;
   border-top: 1px solid var(--border);
   font-size: 1.2rem;
-  font-weight: 800;
 }
 
 .whatsapp-cart-button {
@@ -736,65 +741,13 @@ textarea:focus-visible {
   color: #fff;
 }
 
-.whatsapp-cart-button:hover {
-  background: #17613d;
-}
-
 .empty-cart {
   text-align: center;
   color: var(--muted);
   padding: 25px 0;
 }
 
-/* =========================
-   BACK TO TOP
-========================= */
-
-#back-to-top {
-  position: fixed;
-  left: 20px;
-  bottom: 20px;
-  z-index: 2500;
-  width: 48px;
-  height: 48px;
-  border: 0;
-  border-radius: 50%;
-  background: var(--text);
-  color: #fff;
-  font-size: 1.2rem;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition:
-    opacity 0.2s ease,
-    visibility 0.2s ease;
-}
-
-#back-to-top.show {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-footer {
-  margin-top: 30px;
-  padding: 45px 20px;
-  background: #2f2924;
-  color: #fff;
-  text-align: center;
-}
-
-footer p {
-  opacity: 0.85;
-}
-
-/* =========================
-   SEARCH
-========================= */
+/* SEARCH */
 
 .search-box {
   max-width: 550px;
@@ -808,14 +761,52 @@ footer p {
   border-radius: 12px;
   padding: 12px 16px;
   background: #fff;
+  color: var(--text);
 }
 
-/* =========================
-   RESPONSIVE TABLET
-========================= */
+/* BACK TO TOP */
+
+#back-to-top {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  z-index: 8000;
+  width: 48px;
+  height: 48px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--text);
+  color: #fff;
+  font-size: 1.2rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+#back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* FOOTER */
+
+footer {
+  margin-top: 30px;
+  padding: 45px 20px;
+  background: #2f2924;
+  color: #fff;
+  text-align: center;
+}
+
+footer p {
+  opacity: 0.85;
+}
+
+/* RESPONSIVE TABLET */
 
 @media (max-width: 1000px) {
-  .products-grid {
+  .products-container {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -831,43 +822,26 @@ footer p {
   }
 }
 
-/* =========================
-   RESPONSIVE MOBILE
-========================= */
+/* RESPONSIVE MOBILE */
 
 @media (max-width: 700px) {
-  .navbar {
-    min-height: 65px;
+  .site-header {
+    position: relative;
   }
 
-  .menu-toggle {
-    display: block;
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 15px;
+    padding: 10px 0;
   }
 
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 65px;
-    left: 0;
-    right: 0;
-    padding: 18px;
-    background: #fff;
-    border-bottom: 1px solid var(--border);
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
+  .brand {
+    font-size: 1.2rem;
   }
 
-  .nav-links.open {
-    display: flex;
-  }
-
-  .nav-links a {
-    padding: 12px 8px;
-  }
-
-  section {
-    width: min(92%, 600px);
+  section:not(.hero) {
+    width: 92%;
     padding: 50px 0;
   }
 
@@ -889,13 +863,13 @@ footer p {
     align-items: stretch;
   }
 
-  .hero-buttons .btn {
+  .hero-buttons .button {
     width: 100%;
   }
 
   .offers-grid,
   .categories-grid,
-  .products-grid,
+  .products-container,
   .about-content,
   .delivery-grid,
   .why-grid,
@@ -907,11 +881,7 @@ footer p {
     width: 100%;
   }
 
-  .product-actions {
-    gap: 10px;
-  }
-
-  .product-actions button {
+  .product-info > button {
     min-height: 50px;
     font-size: 1rem;
   }
@@ -941,13 +911,11 @@ footer p {
   }
 }
 
-/* =========================
-   SMALL PHONES
-========================= */
+/* SMALL PHONES */
 
 @media (max-width: 400px) {
-  .logo {
-    font-size: 1.2rem;
+  .brand {
+    font-size: 1.05rem;
   }
 
   .hero h1 {
@@ -968,9 +936,7 @@ footer p {
   }
 }
 
-/* =========================
-   REDUCED MOTION
-========================= */
+/* REDUCED MOTION */
 
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -983,17 +949,4 @@ footer p {
     transition: none !important;
     animation: none !important;
   }
-}/* FIX MOBILE TOUCH */
-html,
-body {
-    pointer-events: auto !important;
-}
-
-button,
-a,
-input,
-select,
-textarea {
-    pointer-events: auto !important;
-    touch-action: manipulation !important;
 }
